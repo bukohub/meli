@@ -1,0 +1,65 @@
+// Override Boostrap variables
+// Import Bootstrap source files from node_modules
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  background: #ebebeb;
+  margin: 0;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  &:after,
+  &::before {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+.container-meli {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.tags {
+  ul {
+    display: flex;
+    padding: 0;
+  }
+
+  li {
+    margin-right: 10px;
+    list-style: none;
+    font-size: 13px;
+    color: gray;
+  }
+}
+
+.app-container {
+  box-sizing: border-box;
+
+  .view-container {
+    width: 100%;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1rem;
+
+    .card {
+      padding: 1rem;
+      max-width: 1200px;
+      margin: auto;
+      border-radius: 2px;
+    }
+
+    .view-routes {
+      height: 100%;
+
+      > div {
+        height: 100%;
+      }
+    }
+  }
+}
