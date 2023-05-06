@@ -9,4 +9,4 @@ useTabs: false
 arrowParens: avoid
 
 # jsx and tsx rules:
-bracketSameLine: false
+bracketSabattlene: false

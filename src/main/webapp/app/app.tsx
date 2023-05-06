@@ -12,18 +12,6 @@ import AppRoutes from 'app/routes';
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
 export const App = () => {
-  const RouteTag = () => (
-    <div>
-      <ul>
-        <li>Electronica</li>
-        <li>Ipod</li>
-        <li>Reproductores</li>
-        <li>Ipoud touch</li>
-        <li className="fw-bold">32 GB</li>
-      </ul>
-    </div>
-  );
-
   const paddingTop = '60px';
   return (
     <BrowserRouter basename={baseHref}>
@@ -31,11 +19,8 @@ export const App = () => {
         <ErrorBoundary>
           <Header />
         </ErrorBoundary>
-        <div className="container-meli" id="app-view-container">
-          <div className="tags mt-3">
-            <RouteTag></RouteTag>
-          </div>
-
+        <div className="container-battle" id="app-view-container">
+          <div className="tags mt-3"></div>
           <ErrorBoundary>
             <AppRoutes />
           </ErrorBoundary>

@@ -1,12 +1,12 @@
-import { defaultValue, IProduct } from './../../shared/model/product.model';
-import { EntityState } from './../../shared/reducers/reducer.utils';
+import { defaultValue, IProduct } from '../../shared/model/product.model';
+import { EntityState } from '../../shared/reducers/reducer.utils';
 import axios from 'axios';
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import sinon from 'sinon';
 
-import reducer, { getEntities, getEntity, reset } from './product.reducer';
+import reducer, { getEntities, getEntity, reset } from './battle.reducer';
 
 describe('Entities reducer tests', () => {
   function isEmpty(element): boolean {

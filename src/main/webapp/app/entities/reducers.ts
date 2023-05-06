@@ -1,7 +1,9 @@
-import product from 'app/entities/product/product.reducer';
+import battle from 'app/entities/battle/battle.reducer';
+import monster from 'app/entities/battle/monster.reducer';
 
 const entitiesReducers = {
-  product,
+  monster,
+  battle,
 };
 
 export default entitiesReducers;

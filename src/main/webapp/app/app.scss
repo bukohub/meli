@@ -2,14 +2,20 @@
 // Import Bootstrap source files from node_modules
 @import '~bootstrap/scss/bootstrap';
 
+@import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&family=Sigmar&display=swap');
+
 body {
-  background: #ebebeb;
+  background-image: linear-gradient(rgba(255, 233, 145, 0.6), rgba(255, 233, 145, 0.8));
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 0;
+  height: 100vh;
 }
 
 * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: 'Konkhmer Sleokchher', cursive;
 
   &:after,
   &::before {
@@ -18,7 +24,7 @@ body {
   }
 }
 
-.container-meli {
+.container-battle {
   max-width: 1200px;
   margin: auto;
 }
@@ -57,7 +63,7 @@ body {
     .view-routes {
       height: 100%;
 
-      > div {
+      >div {
         height: 100%;
       }
     }

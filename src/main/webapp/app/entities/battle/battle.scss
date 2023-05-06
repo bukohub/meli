@@ -1,0 +1,219 @@
+.battle {
+
+  &--title {
+    font-size: 7rem;
+    font-family: 'Sigmar', cursive;
+    text-shadow: 10px 10px #ffffff;
+    text-align: center;
+  }
+
+  &--first-attacker {
+    position: absolute;
+    top: -99px;
+    color: white;
+    transform: rotate(-10deg) translate(-50%, -50%);
+    font-size: 1.5rem;
+    left: 50%;
+    animation: show-hide 5s linear forwards;
+
+    transition: all 500ms ease;
+    opacity: 0;
+  }
+
+  &__init {
+
+    button {
+      font-weight: bold;
+      padding: 14px;
+      background: black;
+      color: white;
+      font-size: 28px;
+      border-radius: 10px;
+      border: 1px solid white;
+      --transition-duration: 200ms;
+      --transition-easing: ease-out;
+      transition: transform var(--transition-duration) var(--transition-easing);
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+  }
+
+  &--started {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(174deg, rgba(0, 0, 0, 1) 37%, rgba(111, 75, 0, 1) 77%, rgba(255, 174, 0, 1) 100%);
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 500ms ease;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.VS {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 117px;
+  font-family: 'Sigmar';
+  animation: cssAnimation 0s ease-in 2s forwards;
+  animation-fill-mode: forwards;
+  transition: all 500ms ease;
+  opacity: 1;
+}
+
+
+.monster {
+  transform: translateX(0);
+
+  border-radius: 20px;
+  border: 3px solid white;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: var(--foreground-color);
+  font-size: 2rem;
+  border: 1px solid rgba(white, 0.6);
+  background-color: rgba(white, 0.1);
+  backdrop-filter: blur(2px);
+  border-radius: 0.5rem;
+  box-shadow: 0px calc(var(--size) / 6) calc(var(--size) / 3) rgba(black, 0.1);
+
+  transition: all 500ms ease;
+
+  overflow: hidden;
+
+  &--title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.84);
+    padding: 10px;
+    text-align: center;
+
+    &--name {
+      font-family: 'Sigmar', cursive;
+
+    }
+  }
+
+
+  &::before {
+    content: '';
+    background: rgba(white, 0.4);
+    width: 60%;
+    height: 100%;
+    top: 0%;
+    left: -125%;
+
+    transform: skew(45deg);
+
+    position: absolute;
+
+    transition: left var(--transition-duration) var(--transition-easing);
+  }
+
+  &:hover {
+    transform: translateY(-5%);
+
+    &::before {
+      left: 150%;
+    }
+  }
+}
+
+.second-attacker {
+  animation-delay: 7s !important;
+}
+
+.move-left {
+  animation: moveLeft 1s linear infinite;
+  animation-delay: 2.5s;
+}
+
+.move-right {
+  animation: moveRight 1s linear infinite;
+  animation-delay: 2.5s;
+}
+
+
+.selection-player {
+  color: red;
+  position: absolute;
+  transform: rotate(-26deg);
+  font-size: 4rem;
+  font-weight: bold;
+  outline: solid;
+  border: 5px solid;
+}
+
+
+
+@keyframes cssAnimation {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes show-hide {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(-40px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(40px);
+  }
+
+  100% {
+    transform: translate(0px);
+  }
+}

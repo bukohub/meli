@@ -90,7 +90,7 @@ module.exports = async options =>
       ),
       new WebpackNotifierPlugin({
         title: 'Mercado Libre',
-        contentImage: path.join(__dirname, 'logo-meli.png'),
+        contentImage: path.join(__dirname, 'logo-battle.png'),
       }),
     ].filter(Boolean),
   });
