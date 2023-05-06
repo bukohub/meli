@@ -19,7 +19,7 @@ const apiItem = 'https://api.mercadolibre.com/items/';
 
 // Actions
 
-export const getStartBattle = createAsyncThunk('battle/fetch_entity_list', async (monsters: Array<Monster>) => {
+export const getStartBattle = createAsyncThunk('battle/fetch_entity_list', async (monsters: Array<number>) => {
   const requestUrl = `${apiUrl}start`;
   return axios.post<Battle[]>(requestUrl, monsters);
 });

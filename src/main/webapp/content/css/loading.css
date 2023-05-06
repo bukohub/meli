@@ -1,14 +1,5 @@
 .app-loading:after {
   content: ' ';
-  background-image: url(https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.22.8/mercadolibre/logo__large_plus.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 175px;
-  height: 175px;
-  transform: translate(-50%, -50%);
 }
 
 .app-loading {

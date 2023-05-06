@@ -8,12 +8,14 @@ import { getEntities } from './monster.reducer';
 import Loading from 'app/shared/layout/loading/loading';
 import { Monster as IMonster, Monster } from 'app/shared/model/Monster.model';
 import { getStartBattle } from './battle.reducer';
+import cx from 'classnames';
 
 export const Battle = () => {
   const dispatch = useAppDispatch();
 
   const [monsterA, setMonsterA] = useState(new Monster());
   const [monsterB, setMonsterB] = useState(new Monster());
+  const [winner, setWinner] = useState(new Monster());
   const [battleInit, setBattleInit] = useState(false);
 
   const monsterList = useAppSelector(state => state.monster.entities);
@@ -49,15 +51,11 @@ export const Battle = () => {
   const startBattle = () => {
     setBattleInit(true);
 
-    dispatch(getStartBattle([monsterA, monsterB]));
+    dispatch(getStartBattle([monsterA.id, monsterB.id]));
   };
 
   const iAmFirstAttacker = (monster: Monster) => {
     return monster.id == battleStart.firstAttacker?.id;
-  };
-
-  const iAmWinner = (monster: Monster) => {
-    return monster.id == battleStart.winner?.id;
   };
 
   useEffect(() => {
@@ -65,7 +63,11 @@ export const Battle = () => {
   }, []);
 
   useEffect(() => {
-    const firstAttacker = battleStart.firstAttacker;
+    if (battleStart.winner) {
+      setTimeout(() => {
+        setWinner(battleStart.winner);
+      }, 6000);
+    }
   }, [battleStart]);
 
   return (
@@ -99,13 +101,19 @@ export const Battle = () => {
 
             <div
               key={monsterA.id}
-              className={iAmFirstAttacker(monsterA) ? 'monster move-right ' : 'monster move-right second-attacker'}
+              className={cx('monster', {
+                'move-right': iAmFirstAttacker(monsterA),
+                'move-right second-attacker': !iAmFirstAttacker(monsterA),
+                'winner-final': winner.id == monsterA.id,
+                'losser-final': winner.id ? winner.id != monsterA.id : false,
+              })}
               onClick={() => chooseMonster(monsterA)}
             >
               <img src={monsterA.imageUrl} />
               <div className="monster--title">
                 <div className="monter--title--name">{monsterA.name}</div>
               </div>
+              {winner.id === monsterA.id && <div className="selection-player">Winner</div>}
             </div>
           </div>
 
@@ -116,7 +124,12 @@ export const Battle = () => {
 
             <div
               key={monsterB.id}
-              className={iAmFirstAttacker(monsterB) ? 'monster move-left ' : 'monster move-left second-attacker'}
+              className={cx('monster', {
+                'move-left': iAmFirstAttacker(monsterB),
+                'move-left second-attacker': !iAmFirstAttacker(monsterB),
+                'winner-final': winner.id == monsterB.id,
+                'losser-final': winner.id ? winner.id != monsterB.id : false,
+              })}
               onClick={() => chooseMonster(monsterB)}
             >
               <img src={monsterB.imageUrl} />
@@ -124,6 +137,7 @@ export const Battle = () => {
               <div className="monster--title">
                 <div className="monter--title--name">{monsterB.name}</div>
               </div>
+              {winner.id === monsterB.id && <div className="selection-player">Winner</div>}
             </div>
           </div>
         </div>
