@@ -101,7 +101,6 @@ module.exports = async options => {
             to: 'swagger-ui/',
           },
           { from: './src/main/webapp/content/', to: 'content/' },
-          { from: './src/main/webapp/favicon.svg', to: 'favicon.svg' },
           { from: './src/main/webapp/manifest.webapp', to: 'manifest.webapp' },
           { from: './src/main/webapp/robots.txt', to: 'robots.txt' },
         ],

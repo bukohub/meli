@@ -14,7 +14,7 @@ const initialState: EntityState<Monster> = {
 };
 
 const apiUrl = 'http://localhost:5000/';
-const apiItem = 'https://api.mercadolibre.com/items/';
+const apiItem = 'https://api.battlemonsters.com/items/';
 
 // Actions
 

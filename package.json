@@ -2,7 +2,7 @@
   "name": "battle-monsters",
   "version": "0.0.1-SNAPSHOT",
   "private": true,
-  "description": "Description for mercadoLibre",
+  "description": "Description for battlemonsters",
   "license": "UNLICENSED",
   "scripts": {
     "build": "npm run webapp:prod --",
